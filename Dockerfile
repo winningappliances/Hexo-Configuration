@@ -5,6 +5,7 @@ WORKDIR /blog
 RUN ls -l
 RUN git clone --progress --verbose https://github.com/winningappliances/Hexo-Configuration.git Hexo-Config/
 WORKDIR /blog/Hexo-Config/
+RUN ls -l
 RUN mv magnetic/ /blog/themes/magnetic/
 RUN mv www/ /blog/node_modules/hexo-hey/www
 COPY _config.yml /blog/_config.yml
