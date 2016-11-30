@@ -1,0 +1,10 @@
+ {"listing": [
+    <%
+    var postsArr = page.posts.toArray(); 
+    for(var i = 0; i < postsArr.length; ++i){ 
+    var item = postsArr[i];
+    %>
+   <%- partial('_partial/article-index', {item: item}) %><%- (i < (postsArr.length -1)) ? ',' : '' %>
+    <% } %>
+    ]
+}
