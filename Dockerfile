@@ -1,4 +1,5 @@
 FROM node:0.10
+<<<<<<< HEAD
 RUN npm install hexo -g && hexo init /blog/ && cd /blog/ && npm install
 RUN npm install hexo-hey --save
 WORKDIR /blog
@@ -15,3 +16,15 @@ ADD hexo-winningadmin/ Hexo-Config/
 VOLUME /blog
 EXPOSE 4000 
 WORKDIR /blog
+=======
+
+RUN npm install hexo -g && hexo init /blog/ && cd /blog/ && npm install
+
+WORKDIR /blog
+
+VOLUME /blog
+
+EXPOSE 4000 
+
+CMD hexo server
+>>>>>>> 4073ff1c8faa48e660a45a0625cc925139b4085a
