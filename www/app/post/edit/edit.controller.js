@@ -72,10 +72,7 @@ class PostEditCtrl {
       this.$translate('ERROR_POST_UPDATE').then(ERROR_POST_UPDATE => {
         console.log(this.$translate);
         console.log(this);
-        this.Toast.show(ERROR_POST_UPDATE);
-              this.$state.go('post.list', {
-        slug: data.slug
-      });
+        this.$state.go('post.list');
       });
     }).finally(() => {
       this.updating = false;

@@ -17,5 +17,4 @@ EXPOSE 4000
 WORKDIR /blog
 RUN rm -rf _config.yml
 RUN ls -l
-VOLUME /blog/_config.yml
 CMD hexo server
