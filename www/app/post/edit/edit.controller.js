@@ -55,6 +55,12 @@ class PostEditCtrl {
       post.layout = publish ? 'post' : 'draft';
     }
     post.date = new Date(this.post.date.replace(' ', 'T'));
+    post.cover_index = this.post.cover_index;
+    post.cover_detail = this.post.cover_detail;
+    post.type = this.post.type;
+    post.startdate = new Date(this.post.startdate.replace(' ', 'T'));
+    post.enddate = new Date(this.post.enddate.replace(' ', 'T'));
+    post.ribbon = this.post.ribbon;
     this.PostService.updatePost(post).then(data => {
       this.$translate('SUCCESS_POST_UPDATE').then(SUCCESS_POST_UPDATE => {
         this.Toast.show(SUCCESS_POST_UPDATE);
@@ -64,7 +70,12 @@ class PostEditCtrl {
       });
     }).catch(() => {
       this.$translate('ERROR_POST_UPDATE').then(ERROR_POST_UPDATE => {
+        console.log(this.$translate);
+        console.log(this);
         this.Toast.show(ERROR_POST_UPDATE);
+              this.$state.go('post.list', {
+        slug: data.slug
+      });
       });
     }).finally(() => {
       this.updating = false;

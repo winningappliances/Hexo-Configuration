@@ -5,12 +5,20 @@
         "type":<%- JSON.stringify(item.type) %>,
         "date":<%- JSON.stringify(item.date) %>,
         "slug": <%- JSON.stringify(item.slug) %>,
-        "content":<%- JSON.stringify(item.content) %>
+        "categories":  
+        <%var categorys = [];     
+          item.categories.forEach(function(category){  
+          categorys.push(category.name);
+          });%>
+          <%- JSON.stringify(categorys) %>,
+        "tags":
+        <%var tags = []; 
+        item.tags.forEach(function(tag){  
+          tags.push(tag.name  );
+          });%>
+           <%- JSON.stringify(tags) %>,
+        "content":<%- JSON.stringify(item.content) %>,
+        "startdate":<%- JSON.stringify(item.startdate) || JSON.stringify("not-set") %>,
+        "enddate":<%- JSON.stringify(item.enddate) || JSON.stringify("not-set")%>,
+        "brand":<%- JSON.stringify(item.brand) || JSON.stringify("not-set") %>
 }
-
-
-
-
-
-
-            

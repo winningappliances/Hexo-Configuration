@@ -1,30 +1,21 @@
 FROM node:0.10
-<<<<<<< HEAD
-RUN npm install hexo -g && hexo init /blog/ && cd /blog/ && npm install
-RUN npm install hexo-hey --save
+
+RUN npm install hexo -g  && hexo init /blog/ && cd /blog/ && npm install && npm install hexo-hey --save
 WORKDIR /blog
-RUN ls -l
+RUN cat package.json
 RUN git clone --progress --verbose https://github.com/winningappliances/Hexo-Configuration.git Hexo-Config/
 WORKDIR /blog/Hexo-Config/
 RUN ls -l
 RUN mv magnetic/ /blog/themes/magnetic/
+RUN rm -rf /blog/node_modules/hexo-hey/www
 RUN mv www/ /blog/node_modules/hexo-hey/www
 COPY _config.yml /blog/_config.yml
 COPY api.js /blog/node_modules/hexo-hey/
 COPY index.js /blog/node_modules/hexo-hey/
-ADD hexo-winningadmin/ Hexo-Config/
 VOLUME /blog
 EXPOSE 4000 
 WORKDIR /blog
-=======
-
-RUN npm install hexo -g && hexo init /blog/ && cd /blog/ && npm install
-
-WORKDIR /blog
-
-VOLUME /blog
-
-EXPOSE 4000 
-
+RUN rm -rf _config.yml
+RUN ls -l
+VOLUME /blog/_config.yml
 CMD hexo server
->>>>>>> 4073ff1c8faa48e660a45a0625cc925139b4085a
